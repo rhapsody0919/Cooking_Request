@@ -3,6 +3,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import HomeScreen from "../screens/HomeScreen";
 import MenuScreen from "../screens/MenuScreen";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { FontAwesome, Ionicons } from "@expo/vector-icons";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -31,10 +32,24 @@ const MenuStack = () => {
   );
 };
 
+const screenOption = ({ route }) => ({
+  tabBarIcon: ({ focused, color, size }) => {
+    let iconName;
+
+    if (route.name === "Home") {
+      iconName = "calendar";
+    } else if (route.name === "Menu") {
+      iconName = "book";
+    }
+
+    return <Ionicons name={iconName} size={size} color={color} />;
+  },
+});
+
 export default AppNavigator = () => {
   return (
     <NavigationContainer>
-      <Tab.Navigator>
+      <Tab.Navigator screenOptions={screenOption}>
         <Tab.Screen name="Home" component={HomeStack} />
         <Tab.Screen
           name="Menu"
