@@ -2,6 +2,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 import HomeScreen from "../screens/HomeScreen";
 import MenuScreen from "../screens/MenuScreen";
+import EditScreen from "../screens/EditScreen";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { FontAwesome, Ionicons } from "@expo/vector-icons";
 
@@ -24,10 +25,11 @@ const MenuStack = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="MenuScreen"
+        name="Menu"
         component={MenuScreen}
         options={{ headerShown: false }}
       />
+      <Stack.Screen name="Edit" component={EditScreen} />
     </Stack.Navigator>
   );
 };

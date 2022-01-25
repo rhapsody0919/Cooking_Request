@@ -1,20 +1,25 @@
 import { StyleSheet, Text, TouchableOpacity } from "react-native";
 
 const styles = StyleSheet.create({
-  button: {
-    backgroundColor: "blue",
-    width: "60%",
-    alignItems: "center",
-    backgroundColor: "#DDDDDD",
-    padding: 10,
-    marginBottom: 20,
+  container: {
+    height: 40,
+    width: 60,
+    backgroundColor: "#000",
+    marginBottom: 30,
+    justifyContent: "center",
+    alignSelf: "center",
+  },
+  text: {
+    textAlign: "center",
+    color: "#fff",
+    fontWeight: "bold",
   },
 });
 
 const AddButton = ({ onPress, label }) => {
   return (
-    <TouchableOpacity style={styles.button} onPress={onPress}>
-      <Text>{label}</Text>
+    <TouchableOpacity style={styles.container} onPress={onPress}>
+      <Text style={styles.text}>{label}</Text>
     </TouchableOpacity>
   );
 };
